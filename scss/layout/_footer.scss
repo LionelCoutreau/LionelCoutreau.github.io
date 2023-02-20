@@ -1,0 +1,10 @@
+footer {
+    background-color:$color-bg-darkgrey;
+    color:$color-txt-light;
+}
+
+h4 {
+    margin:0;
+    padding:$spacing-default;
+    @include font-family ('Shrikhand', $font-size-default, 400);
+}

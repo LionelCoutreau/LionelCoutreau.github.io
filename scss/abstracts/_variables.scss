@@ -1,0 +1,25 @@
+$color-primary: #9356DC;
+$color-secondary: #FF79DA;
+$color-tertiary: #99E2D0;
+$color-bg-light: #FFFFFF;
+$color-bg-lightgrey:#f7f7f7;
+$color-bg-darkgrey:#353535;
+$color-bg-mediumgrey:#7e7e7e;
+$color-txt-light: #FFFFFF;
+$colors-loading: $color-primary, mix($color-primary, $color-secondary, 50%), $color-secondary;
+$btn-gradient: linear-gradient(top, $color-primary, $color-secondary);
+
+$font-titre: 'Shrikhand', cursive;
+$font-texte: 'Roboto', sans-serif;
+$font-size-default:1rem;
+$font-size-large:1.5rem;
+$font-weight-thin:100;
+$font-weight-light:300;
+$font-weight-regular:400;
+$font-weight-medium:500;
+$font-weight-bold:700;
+
+$border-radius-default: 2rem;
+$spacing-default:1rem;
+$border-radius-fonction: 1rem;
+$transition-duree:250ms;

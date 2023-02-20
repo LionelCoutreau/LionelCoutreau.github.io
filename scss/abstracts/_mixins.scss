@@ -1,0 +1,19 @@
+@mixin section-background-color($color, $padding) {
+    background-color:$color;
+    padding:$padding;
+}
+@mixin font-family ($font, $size, $weight:$font-weight-regular, $align:left) {
+    font-family:$font;
+    font-size:$size;
+    @if($align != left) {
+        text-align:$align;
+    }
+    @if($weight != $font-weight-regular) {
+        font-weight:$weight;
+    }
+}
+@mixin flex-full-center {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
