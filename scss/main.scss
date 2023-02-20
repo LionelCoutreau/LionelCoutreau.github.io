@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Shrikhand&display=swap');
+@import 'abstracts/variables', 'abstracts/mixins';
+@import 'base/animations';
+@import 'layout/wrapper', 'layout/header', 'layout/navigation', 'layout/footer';
+@import 'components/buttons', 'components/loading';
+@import 'pages/home', 'pages/restaurant';
+
+body {
+    margin:0;
+    padding:0;
+    @include font-family ('Roboto', 1rem);
+}

@@ -1,0 +1,72 @@
+section {
+    padding:1rem;
+    &:nth-child(odd) {
+        @include section-background-color($color-bg-lightgrey, $spacing-default);
+    }
+    &:first-child {
+        text-align:center;
+    }
+}
+
+h1 {
+    @include font-family ('Roboto', $font-size-large, $font-weight-bold);
+}
+
+.intro {
+    @include font-family ('Roboto', $font-size-default, $font-weight-light);
+}
+
+.fonction {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    margin-left:$spacing-default;
+    &__item {
+        @include font-family ('Roboto', $font-size-default, $font-weight-medium);
+        display:flex;
+        align-items:center;
+        border-radius:$border-radius-fonction;
+        padding:1.5rem 0rem;
+        margin:$spacing-default 0rem;
+        background-color:$color-bg-lightgrey;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
+        transition:all $transition-duree;
+        @for $i from 1 through 3 {
+            &--item#{$i}::before {
+                content:"#{$i}";
+                background-color:$color-primary;
+                color:$color-txt-light;
+                font-size:0.8rem;
+                display:flex;
+                @include flex-full-center;
+                width: 24px;
+                height:24px;
+                border-radius:15px;
+                margin-left:-12px;
+            }
+        }
+        &:hover {
+            background-color:adjust-color($color-primary, $alpha: -0.9);
+            .fonction__icon {
+                fill: $color-primary;
+            }
+        }
+    }
+    &__icon {
+        width:20px;
+        height:20px;
+        object-fit:contain;
+        margin:0rem 1.2rem;
+        fill: $color-bg-mediumgrey;
+        transition:all $transition-duree;
+    }
+}
+
+.restaurant {
+    border-radius:$border-radius-fonction;
+    overflow:hidden;
+    &__photo {
+        width:100%;
+        object-fit:fill;
+    }
+}

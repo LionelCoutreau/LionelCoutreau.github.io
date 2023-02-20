@@ -1,0 +1,18 @@
+header {
+    .titre {
+        @include font-family ('Shrikhand', 1.6rem, $font-weight-regular, center);
+        padding:$spacing-default 0rem 0.5rem 0rem;
+    }
+}
+
+.localisation {
+    @include font-family ('Roboto', $font-size-default);
+    background-color:#eaeaea;
+    padding:$spacing-default;
+    box-shadow: inset rgba(0, 0, 0, 0.2) 0px 3px 4px;
+    @include flex-full-center;
+    &__icon {
+        width:0.8rem;
+        padding-right:$spacing-default;
+    }
+}
