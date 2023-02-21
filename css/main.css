@@ -1,10 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Shrikhand&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+  font-size: 1rem;
+}
+
+.flex-full-center, .fonction__item--item3::before, .fonction__item--item2::before, .fonction__item--item1::before, .loading, .localisation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @keyframes loading {
   from {
     opacity: 1;
   }
   to {
     opacity: 0;
+    visibility: hidden;
   }
 }
 @keyframes loading-bar {
@@ -29,10 +43,6 @@
     height: 60px;
   }
 }
-.wrapper {
-  animation: loading 0.8s 3s both reverse;
-}
-
 header .titre {
   font-family: "Shrikhand";
   font-size: 1.6rem;
@@ -46,12 +56,9 @@ header .titre {
   background-color: #eaeaea;
   padding: 1rem;
   box-shadow: inset rgba(0, 0, 0, 0.2) 0px 3px 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .localisation__icon {
-  width: 0.8rem;
+  width: 12px;
   padding-right: 1rem;
 }
 
@@ -79,7 +86,8 @@ footer a .footer__icon {
   fill: #FFFFFF;
   width: 14px;
   height: 14px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   padding-right: 0.5rem;
 }
 footer a:hover {
@@ -111,10 +119,8 @@ footer a:hover {
   height: 100%;
   width: 100%;
   background-color: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   animation: loading 0.8s 3s both;
+  z-index: 999;
 }
 .loading__bar {
   width: 30px;
@@ -137,6 +143,44 @@ footer a:hover {
   animation-delay: 0.2s;
 }
 
+.icon-like-dimensions, .like__empty, .like__filled, .like {
+  width: 20px;
+  height: 20px;
+}
+
+.like {
+  padding: 1rem 1rem 0rem 1rem;
+  cursor: pointer;
+  position: relative;
+}
+.like__gradient {
+  stop-opacity: 1;
+}
+.like__gradient--start {
+  stop-color: #9356DC;
+}
+.like__gradient--stop {
+  stop-color: #FF79DA;
+}
+.like__filled {
+  position: absolute;
+  transform: scale(0);
+  transition: all 250ms;
+}
+.like__empty {
+  position: absolute;
+  fill: #FFFFFF;
+  stroke: #000000;
+  stroke-width: 15px;
+  transition: all 250ms;
+}
+.like:hover .like__filled {
+  transform: scale(1);
+}
+.like:hover .like__empty {
+  stroke-width: 0px;
+}
+
 section {
   padding: 1rem;
 }
@@ -148,7 +192,7 @@ section:first-child {
   text-align: center;
 }
 
-h1 {
+h1, h2 {
   font-family: "Roboto";
   font-size: 1.5rem;
   font-weight: 700;
@@ -185,9 +229,6 @@ h1 {
   color: #FFFFFF;
   font-size: 0.8rem;
   display: flex;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 24px;
   height: 24px;
   border-radius: 15px;
@@ -199,9 +240,6 @@ h1 {
   color: #FFFFFF;
   font-size: 0.8rem;
   display: flex;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 24px;
   height: 24px;
   border-radius: 15px;
@@ -213,9 +251,6 @@ h1 {
   color: #FFFFFF;
   font-size: 0.8rem;
   display: flex;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 24px;
   height: 24px;
   border-radius: 15px;
@@ -230,7 +265,8 @@ h1 {
 .fonction__icon {
   width: 20px;
   height: 20px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   margin: 0rem 1.2rem;
   fill: #7e7e7e;
   transition: all 250ms;
@@ -246,8 +282,10 @@ h1 {
 }
 .restaurant__photo {
   width: 100%;
-  object-fit: cover;
-  object-position: 50% 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 100%;
+     object-position: 50% 100%;
   height: 200px;
 }
 .restaurant__new {
@@ -269,13 +307,17 @@ h1 {
 .restaurant__titre {
   flex: 1;
 }
-.restaurant__titre h2 {
+.restaurant__titre h3 {
   margin: 0;
   padding: 1rem 1rem 0rem 1rem;
   flex: 1;
   font-family: "Roboto";
   font-size: 1.2rem;
   font-weight: 700;
+}
+.restaurant__titre h3 a {
+  text-decoration: none;
+  color: #000000;
 }
 .restaurant__titre p {
   margin: 0;
@@ -284,27 +326,7 @@ h1 {
   font-size: 1rem;
   font-weight: 300;
 }
-.restaurant__like {
-  padding: 1rem 1rem 0rem 1rem;
-  width: 23px;
-  height: 20px;
-  fill: #FFFFFF;
-  stroke: black;
-  stroke-width: 1px;
-  cursor: pointer;
-  transition: all 250ms;
-}
-.restaurant__like:hover {
-  fill: #9356DC;
-  stroke-width: 0;
-}
-.restaurant--item2 .restaurant__photo {
-  object-position: 50% 60%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto";
-  font-size: 1rem;
+.restaurant--bigphoto .restaurant__photo {
+  -o-object-position: 50% 60%;
+     object-position: 50% 60%;
 }/*# sourceMappingURL=main.css.map */

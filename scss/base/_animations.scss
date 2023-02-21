@@ -1,6 +1,6 @@
 @keyframes loading {
-    from { opacity:1 }
-    to { opacity:0; }
+    from { opacity:1; }
+    to { opacity:0; visibility:hidden; }
 }
 @keyframes loading-bar {
     0% { height: 180px }

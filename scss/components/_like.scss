@@ -1,0 +1,42 @@
+.icon-like-dimensions {
+    width:20px;
+    height:20px;
+}
+
+.like {
+    padding:$spacing-default $spacing-default 0rem $spacing-default;
+    @extend .icon-like-dimensions;
+    cursor:pointer;
+    position:relative;
+    &__gradient {
+        stop-opacity:1;
+        &--start {
+            stop-color:$color-primary;
+        }
+        &--stop {
+            stop-color:$color-secondary;
+        }
+    }    
+    &__filled {
+        position:absolute;
+        @extend .icon-like-dimensions;
+        transform:scale(0);
+        transition:all $transition-duree;
+    }
+    &__empty {
+        position:absolute;
+        @extend .icon-like-dimensions;
+        fill:$color-bg-light;
+        stroke:$color-bg-dark;
+        stroke-width:15px;
+        transition:all $transition-duree;
+    }
+    &:hover {
+        .like__filled {
+            transform:scale(1);
+        }
+        .like__empty {
+            stroke-width:0px;
+        }
+    }
+}

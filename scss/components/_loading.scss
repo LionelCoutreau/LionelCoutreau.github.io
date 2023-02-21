@@ -3,8 +3,9 @@
     height:100%;
     width:100%;
     background-color: $color-bg-light;
-    @include flex-full-center;
+    @extend .flex-full-center;
     animation: loading 0.8s 3s both;
+    z-index:999;
     &__bar {
         width:30px;
         margin:10px;

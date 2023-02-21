@@ -12,6 +12,10 @@ h1 {
     @include font-family ('Roboto', $font-size-large, $font-weight-bold);
 }
 
+h2 {
+    @extend h1;
+}
+
 .intro {
     @include font-family ('Roboto', $font-size-default, $font-weight-light);
 }
@@ -38,7 +42,7 @@ h1 {
                 color:$color-txt-light;
                 font-size:0.8rem;
                 display:flex;
-                @include flex-full-center;
+                @extend .flex-full-center;
                 width: 24px;
                 height:24px;
                 border-radius:15px;
@@ -91,11 +95,15 @@ h1 {
     }
     &__titre {
         flex:1;
-        h2 {
+        h3 {
             margin:0;
             padding:$spacing-default $spacing-default 0rem $spacing-default;
             flex:1;
             @include font-family ('Roboto', 1.2rem, $font-weight-bold);
+            a {
+                text-decoration:none;
+                color:$color-txt-dark;
+            }
         }
         p {
             margin:0;
@@ -103,21 +111,7 @@ h1 {
             @include font-family ('Roboto', 1rem, $font-weight-light);
         }
     }
-    &__like {
-        padding:$spacing-default $spacing-default 0rem $spacing-default;
-        width:23px;
-        height:20px;
-        fill:$color-bg-light;
-        stroke:black;
-        stroke-width:1px;
-        cursor:pointer;
-        transition:all $transition-duree;
-        &:hover {
-            fill:$color-primary;
-            stroke-width:0;
-        }
-    }
-    &--item2 {
+    &--bigphoto {
         .restaurant__photo {
             object-position: 50% 60%;
         }

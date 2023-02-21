@@ -10,9 +10,9 @@ header {
     background-color:#eaeaea;
     padding:$spacing-default;
     box-shadow: inset rgba(0, 0, 0, 0.2) 0px 3px 4px;
-    @include flex-full-center;
+    @extend .flex-full-center;
     &__icon {
-        width:0.8rem;
+        width:12px;
         padding-right:$spacing-default;
     }
 }
