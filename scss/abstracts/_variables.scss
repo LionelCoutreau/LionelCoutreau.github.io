@@ -7,7 +7,8 @@ $color-bg-darkgrey:#353535;
 $color-bg-mediumgrey:#7e7e7e;
 $color-txt-light: #FFFFFF;
 $colors-loading: $color-primary, mix($color-primary, $color-secondary, 50%), $color-secondary;
-$btn-gradient: linear-gradient(top, $color-primary, $color-secondary);
+$gradient-default: linear-gradient(to top, $color-primary, $color-secondary);
+$gradient-rev: linear-gradient(to bottom, $color-primary, $color-secondary);
 
 $font-titre: 'Shrikhand', cursive;
 $font-texte: 'Roboto', sans-serif;

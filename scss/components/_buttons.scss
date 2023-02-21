@@ -2,16 +2,16 @@
     @include font-family ('Roboto', 1rem, $font-weight-medium);
     border-radius: $border-radius-default;
     border:0px;
-    background: linear-gradient(to top, $color-primary, $color-secondary);
+    background: $gradient-default;
     position: relative;
     color:$color-txt-light;
     padding:$spacing-default 2rem;
     margin:1.5rem 0rem;
     opacity:1;
     transition: all $transition-duree;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
+    @include box-shadow(0.1);
     &:hover {
         opacity:0.85;
-        box-shadow: rgba(0, 0, 0, 0.6) 0px 4px 8px;
+        @include box-shadow(0.4);
     }
 }
