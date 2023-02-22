@@ -26,7 +26,7 @@
     &__empty {
         position:absolute;
         @extend .icon-like-dimensions;
-        fill:$color-bg-light;
+        fill:transparent;
         stroke:$color-bg-dark;
         stroke-width:15px;
         transition:all $transition-duree;

@@ -6,7 +6,7 @@ body {
   font-size: 1rem;
 }
 
-.flex-full-center, .fonction__item--item3::before, .fonction__item--item2::before, .fonction__item--item1::before, .loading, .localisation {
+.flex-full-center, .recipe__selected, .fonction__item--item3::before, .fonction__item--item2::before, .fonction__item--item1::before, .loading, nav, .localisation {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,6 +43,19 @@ body {
     height: 60px;
   }
 }
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+header {
+  position: relative;
+}
 header .titre {
   font-family: "Shrikhand";
   font-size: 1.6rem;
@@ -60,6 +73,21 @@ header .titre {
 .localisation__icon {
   width: 12px;
   padding-right: 1rem;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 1rem 0rem 0.5rem 0rem;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin: 0rem 1rem;
 }
 
 footer {
@@ -108,6 +136,9 @@ footer a:hover {
   opacity: 1;
   transition: all 250ms;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
+}
+.btn--large {
+  padding: 1rem 3rem;
 }
 .btn:hover {
   opacity: 0.85;
@@ -169,7 +200,7 @@ footer a:hover {
 }
 .like__empty {
   position: absolute;
-  fill: #FFFFFF;
+  fill: transparent;
   stroke: #000000;
   stroke-width: 15px;
   transition: all 250ms;
@@ -181,23 +212,20 @@ footer a:hover {
   stroke-width: 0px;
 }
 
-section {
+.section-home {
   padding: 1rem;
 }
-section:nth-child(odd) {
+.section-home:nth-child(odd) {
   background-color: #f7f7f7;
-  padding: 1rem;
 }
-section:first-child {
+.section-home:first-child {
   text-align: center;
 }
-
-h1, h2 {
+.section-home h1, .section-home h2 {
   font-family: "Roboto";
   font-size: 1.5rem;
   font-weight: 700;
 }
-
 .intro {
   font-family: "Roboto";
   font-size: 1rem;
@@ -288,6 +316,10 @@ h1, h2 {
      object-position: 50% 100%;
   height: 200px;
 }
+.restaurant--bigphoto .restaurant__photo {
+  -o-object-position: 50% 60%;
+     object-position: 50% 60%;
+}
 .restaurant__new {
   position: absolute;
   top: 0.8rem;
@@ -326,7 +358,125 @@ h1, h2 {
   font-size: 1rem;
   font-weight: 300;
 }
-.restaurant--bigphoto .restaurant__photo {
-  -o-object-position: 50% 60%;
-     object-position: 50% 60%;
+
+.order {
+  text-align: center;
+}
+
+.label {
+  position: relative;
+  height: 310px;
+}
+.label__photo {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+.label__titre {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: "Shrikhand";
+  font-size: 1.2rem;
+  display: flex;
+  align-items: baseline;
+  padding: 0rem 1rem;
+  margin-top: 1rem;
+  border-radius: 2rem 2rem 0 0;
+  background-color: #f7f7f7;
+}
+.label__titre h1, .label__titre .section-home h2, .section-home .label__titre h2 {
+  flex: 1;
+}
+
+.recipes {
+  background-color: #f7f7f7;
+  padding: 0 1rem;
+  border: 1px solid #f7f7f7;
+}
+.recipes h2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-family: "Roboto";
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.recipes h2::after {
+  content: "";
+  width: 2.5rem;
+  border-bottom: 3px solid #99E2D0;
+}
+
+.recipes-group {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.recipe {
+  border-radius: 1rem;
+  padding: 0rem 0rem;
+  margin: 1rem 0rem;
+  background-color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recipe__padding, .recipe__price, .recipe__title {
+  padding: 0.8rem;
+}
+.recipe__truncate, .recipe__description, .recipe__name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.recipe__title {
+  flex: 1;
+  min-width: 0;
+}
+.recipe__name {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.recipe__description {
+  margin-top: 0.2rem;
+  font-family: "Roboto";
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+.recipe__price {
+  font-family: "Roboto";
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding-right: 1.2rem;
+  align-self: flex-end;
+}
+.recipe__selected {
+  background-color: #99E2D0;
+  padding: 1.2rem;
+  align-self: stretch;
+  transform: translateX(100%);
+  transition: all ease-out 400ms;
+}
+.recipe__selected svg {
+  width: 20px;
+  height: 20px;
+  fill: #FFFFFF;
+  transform: rotate(0deg);
+}
+.recipe:hover .recipe__selected {
+  transform: translateX(0);
+}
+.recipe:hover .recipe__selected svg {
+  transition: all ease-out 400ms;
+  transform: rotate(360deg);
 }/*# sourceMappingURL=main.css.map */

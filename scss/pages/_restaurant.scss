@@ -1,0 +1,114 @@
+.order {
+    text-align:center;
+}
+
+.label {
+    position:relative;
+    height:310px;
+    &__photo {
+        width:100%;
+        object-fit:cover;
+        z-index:-1;
+    }
+    &__titre {
+        position:absolute;
+        left:0;
+        right:0;
+        bottom:0;
+        @include font-family ('Shrikhand', 1.2rem, $font-weight-regular);
+        display:flex;
+        align-items:baseline;
+        padding:0rem $spacing-default;
+        margin-top:1rem;
+        border-radius:$border-radius-default $border-radius-default 0 0;
+        background-color:$color-bg-lightgrey;
+        h1 {
+            flex:1;
+        }
+    }
+}
+
+.recipes {
+    background-color:$color-bg-lightgrey;
+    padding:0 $spacing-default;
+    border:1px solid $color-bg-lightgrey; //bug d'affichage
+    h2 {
+        display:flex;
+        flex-direction:column;
+        gap: 0.3rem;
+        @include font-family ('Roboto', $font-size-default, $font-weight-light);
+        text-transform:uppercase;
+        &::after {
+            content : "";
+            width   : 2.5rem;
+            border-bottom:3px solid $color-tertiary;
+        }
+    }
+}
+
+.recipes-group {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+
+.recipe {
+    @include li-item(0rem, $color-bg-light);
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    &__padding {
+        padding:0.8rem;
+    }
+    &__truncate {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__title {
+        flex:1;
+        @extend .recipe__padding;
+        min-width: 0;
+    }
+    &__name {
+        margin:0;
+        padding:0;
+        @include font-family ('Roboto', 1.1rem, $font-weight-medium);
+        @extend .recipe__truncate;
+    }
+    &__description {
+        margin-top:0.2rem;
+        @include font-family ('Roboto', 0.9rem, $font-weight-light);
+        @extend .recipe__truncate;
+    }
+    &__price {
+        @include font-family ('Roboto', 0.9rem, $font-weight-medium);
+        @extend .recipe__padding;
+        padding-right:1.2rem;
+        align-self:flex-end;
+    }
+    &__selected {
+        background-color:$color-tertiary;
+        @extend .flex-full-center;
+        padding:1.2rem;
+        align-self:stretch;
+        transform:translateX(100%);
+        transition:all ease-out 400ms;
+        svg {
+            width:20px;
+            height:20px;
+            fill:$color-bg-light;
+            transform:rotate(0deg);
+        }
+    }
+    &:hover {
+        .recipe__selected {
+            transform:translateX(0);
+            svg {
+                transition:all ease-out 400ms;
+                transform:rotate(360deg);
+            }
+        }
+    }
+}

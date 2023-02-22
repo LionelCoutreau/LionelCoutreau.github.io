@@ -1,0 +1,15 @@
+nav {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    padding:$spacing-default 0rem 0.5rem 0rem;
+    @extend .flex-full-center;
+}
+
+.nav-icon {
+    width:24px;
+    height:24px;
+    cursor:pointer;
+    margin:0rem $spacing-default;
+}

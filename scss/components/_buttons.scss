@@ -10,6 +10,9 @@
     opacity:1;
     transition: all $transition-duree;
     @include box-shadow(0.1);
+    &--large {
+        padding:$spacing-default 3rem;
+    }
     &:hover {
         opacity:0.85;
         @include box-shadow(0.4);
