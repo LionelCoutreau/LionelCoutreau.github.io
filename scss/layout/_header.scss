@@ -1,4 +1,5 @@
 header {
+    position:relative;
     .titre {
         @include font-family ('Shrikhand', 1.6rem, $font-weight-regular, center);
         padding:$spacing-default 0rem 0.5rem 0rem;

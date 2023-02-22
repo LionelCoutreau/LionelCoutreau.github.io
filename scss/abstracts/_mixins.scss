@@ -1,6 +1,5 @@
-@mixin section-background-color($color, $padding) {
+@mixin section-background-color($color) {
     background-color:$color;
-    padding:$padding;
 }
 @mixin font-family ($font, $size, $weight:$font-weight-regular, $align:left) {
     font-family:$font;
@@ -14,4 +13,21 @@
 }
 @mixin box-shadow($alpha) {
     box-shadow: rgba(0, 0, 0, $alpha) 0px 4px 8px;
+}
+@mixin tablet-only {
+    @media screen and (min-width: map-get($breakpoints, tablet)){
+        @content;
+    }
+}
+@mixin desktop-only {
+    @media screen and (min-width: map-get($breakpoints, desktop)){
+        @content;
+    }
+}
+@mixin li-item($padding, $bgcolor) {
+    border-radius:$border-radius-fonction;
+    padding:$padding 0rem;
+    margin:$spacing-default 0rem;
+    background-color:$bgcolor;
+    @include box-shadow(0.1);
 }

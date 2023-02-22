@@ -1,19 +1,19 @@
-section {
-    padding:1rem;
+.section-home {
+    padding:$spacing-default;
     &:nth-child(odd) {
-        @include section-background-color($color-bg-lightgrey, $spacing-default);
+        @include section-background-color($color-bg-lightgrey);
     }
     &:first-child {
         text-align:center;
     }
-}
 
-h1 {
-    @include font-family ('Roboto', $font-size-large, $font-weight-bold);
-}
-
-h2 {
-    @extend h1;
+    h1 {
+        @include font-family ('Roboto', $font-size-large, $font-weight-bold);
+    }
+    
+    h2 {
+        @extend h1;
+    }
 }
 
 .intro {
@@ -29,11 +29,7 @@ h2 {
         @include font-family ('Roboto', $font-size-default, $font-weight-medium);
         display:flex;
         align-items:center;
-        border-radius:$border-radius-fonction;
-        padding:1.5rem 0rem;
-        margin:$spacing-default 0rem;
-        background-color:$color-bg-lightgrey;
-        @include box-shadow(0.1);
+        @include li-item(1.5rem, $color-bg-lightgrey);
         transition:all $transition-duree;
         @for $i from 1 through 3 {
             &--item#{$i}::before {
@@ -79,6 +75,11 @@ h2 {
         object-position: 50% 100%;
         height:200px;
     }
+    &--bigphoto {
+        .restaurant__photo {
+            object-position: 50% 60%;
+        }
+    }
     &__new {
         position:absolute;
         top:0.8rem;
@@ -109,11 +110,6 @@ h2 {
             margin:0;
             padding:0rem $spacing-default $spacing-default $spacing-default;
             @include font-family ('Roboto', 1rem, $font-weight-light);
-        }
-    }
-    &--bigphoto {
-        .restaurant__photo {
-            object-position: 50% 60%;
         }
     }
 }
