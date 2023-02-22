@@ -55,9 +55,7 @@
 .recipe {
     @include li-item(0rem, $color-bg-light);
     overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    position:relative;
     &__padding {
         padding:0.8rem;
     }
@@ -67,9 +65,9 @@
         text-overflow: ellipsis;
     }
     &__title {
-        flex:1;
         @extend .recipe__padding;
         min-width: 0;
+        transition:all ease-out 400ms;
     }
     &__name {
         margin:0;
@@ -77,18 +75,26 @@
         @include font-family ('Roboto', 1.1rem, $font-weight-medium);
         @extend .recipe__truncate;
     }
+    &__infos {
+        display:flex;
+        align-items:center;
+        margin:0;
+        padding-top: 0.2rem;
+    }
     &__description {
-        margin-top:0.2rem;
         @include font-family ('Roboto', 0.9rem, $font-weight-light);
         @extend .recipe__truncate;
+        flex:1;
     }
     &__price {
         @include font-family ('Roboto', 0.9rem, $font-weight-medium);
-        @extend .recipe__padding;
-        padding-right:1.2rem;
-        align-self:flex-end;
+        padding-left:0.5rem;
     }
     &__selected {
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
         background-color:$color-tertiary;
         @extend .flex-full-center;
         padding:1.2rem;
@@ -103,6 +109,9 @@
         }
     }
     &:hover {
+        .recipe__title {
+            padding-right:4.5rem;
+        }
         .recipe__selected {
             transform:translateX(0);
             svg {

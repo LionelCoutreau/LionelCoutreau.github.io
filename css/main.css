@@ -114,8 +114,7 @@ footer a .footer__icon {
   fill: #FFFFFF;
   width: 14px;
   height: 14px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   padding-right: 0.5rem;
 }
 footer a:hover {
@@ -293,8 +292,7 @@ footer a:hover {
 .fonction__icon {
   width: 20px;
   height: 20px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   margin: 0rem 1.2rem;
   fill: #7e7e7e;
   transition: all 250ms;
@@ -310,15 +308,12 @@ footer a:hover {
 }
 .restaurant__photo {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: 50% 100%;
-     object-position: 50% 100%;
+  object-fit: cover;
+  object-position: 50% 100%;
   height: 200px;
 }
 .restaurant--bigphoto .restaurant__photo {
-  -o-object-position: 50% 60%;
-     object-position: 50% 60%;
+  object-position: 50% 60%;
 }
 .restaurant__new {
   position: absolute;
@@ -369,8 +364,7 @@ footer a:hover {
 }
 .label__photo {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   z-index: -1;
 }
 .label__titre {
@@ -424,11 +418,9 @@ footer a:hover {
   background-color: #FFFFFF;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 }
-.recipe__padding, .recipe__price, .recipe__title {
+.recipe__padding, .recipe__title {
   padding: 0.8rem;
 }
 .recipe__truncate, .recipe__description, .recipe__name {
@@ -437,8 +429,8 @@ footer a:hover {
   text-overflow: ellipsis;
 }
 .recipe__title {
-  flex: 1;
   min-width: 0;
+  transition: all ease-out 400ms;
 }
 .recipe__name {
   margin: 0;
@@ -447,20 +439,29 @@ footer a:hover {
   font-size: 1.1rem;
   font-weight: 500;
 }
+.recipe__infos {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-top: 0.2rem;
+}
 .recipe__description {
-  margin-top: 0.2rem;
   font-family: "Roboto";
   font-size: 0.9rem;
   font-weight: 300;
+  flex: 1;
 }
 .recipe__price {
   font-family: "Roboto";
   font-size: 0.9rem;
   font-weight: 500;
-  padding-right: 1.2rem;
-  align-self: flex-end;
+  padding-left: 0.5rem;
 }
 .recipe__selected {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
   background-color: #99E2D0;
   padding: 1.2rem;
   align-self: stretch;
@@ -472,6 +473,9 @@ footer a:hover {
   height: 20px;
   fill: #FFFFFF;
   transform: rotate(0deg);
+}
+.recipe:hover .recipe__title {
+  padding-right: 4.5rem;
 }
 .recipe:hover .recipe__selected {
   transform: translateX(0);
