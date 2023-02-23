@@ -1,14 +1,24 @@
 .section-home {
-    padding:$spacing-default;
+    padding:$spacing-default $spacing-default 2rem $spacing-default;
     &:nth-child(odd) {
         @include section-background-color($color-bg-lightgrey);
     }
     &:first-child {
         text-align:center;
+        @include desktop-only {
+            display:flex;
+            justify-content:space-evenly;
+            align-items:center;
+            height:250px;
+            text-align:left;
+        }    
     }
 
     h1 {
         @include font-family ('Roboto', $font-size-large, $font-weight-bold);
+        @include desktop-only {
+            @include font-family ('Roboto', 2rem, $font-weight-bold);
+        }    
     }
     
     h2 {
@@ -17,7 +27,12 @@
 }
 
 .intro {
-    @include font-family ('Roboto', $font-size-default, $font-weight-light);
+    &__description{
+        @include font-family ('Roboto', 1.2rem, $font-weight-light);
+        @include desktop-only {
+            @include font-family ('Roboto', $font-size-large, $font-weight-light);
+        }    
+    }
 }
 
 .fonction {
@@ -25,11 +40,19 @@
     margin:0;
     padding:0;
     margin-left:$spacing-default;
+    @include ul-item(nowrap);
     &__item {
         @include font-family ('Roboto', $font-size-default, $font-weight-medium);
         display:flex;
         align-items:center;
-        @include li-item(1.5rem, $color-bg-lightgrey);
+        @include li-item(1.5rem 0, $spacing-default 0, $color-bg-lightgrey, calc($width-li-desktop - $spacing-default), calc($width-li-desktop - $spacing-default));
+        @include tablet-only {
+            margin-left:$spacing-default;
+        }
+        @include desktop-only {
+            margin-left:$spacing-default;
+            @include font-family ('Roboto', 1.1rem, $font-weight-medium);
+        }
         transition:all $transition-duree;
         @for $i from 1 through 3 {
             &--item#{$i}::before {
@@ -38,7 +61,7 @@
                 color:$color-txt-light;
                 font-size:0.8rem;
                 display:flex;
-                @extend .flex-full-center;
+                @include flex-full-center;
                 width: 24px;
                 height:24px;
                 border-radius:15px;
@@ -59,16 +82,26 @@
         margin:0rem 1.2rem;
         fill: $color-bg-mediumgrey;
         transition:all $transition-duree;
+        @include tablet-only {
+            margin:0rem 0.8rem;
+        }
+        @include desktop-only {
+            margin:0rem 1.2rem;
+        }
+
     }
 }
 
+.restaurants {
+    @include ul-item;
+}
+
 .restaurant {
-    border-radius:$border-radius-fonction;
     overflow:hidden;
     position:relative;
-    background-color:$color-bg-light;
-    margin-bottom: $spacing-default;
+    @include li-item(0, $spacing-default 0, $color-bg-light, $width-li-tablet, $width-li-desktop-25, $spacing: 1);
     @include box-shadow(0.1);
+    flex-grow:1;
     &__photo {
         width:100%;
         object-fit:cover;
@@ -95,11 +128,15 @@
         display:flex;
     }
     &__titre {
+        min-width: 0;
         flex:1;
         h3 {
             margin:0;
             padding:$spacing-default $spacing-default 0rem $spacing-default;
             flex:1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             @include font-family ('Roboto', 1.2rem, $font-weight-bold);
             a {
                 text-decoration:none;

@@ -1,14 +1,47 @@
 .order {
     text-align:center;
+    @include tablet-only {
+        padding:$spacing-default;
+    }
+    @include desktop-only {
+        padding:$spacing-default;
+    }
 }
 
 .label {
     position:relative;
     height:310px;
+    overflow:hidden;
+    @include tablet-only {
+        height:350px;
+    }
+    @include desktop-only {
+        height:500px;
+    }
     &__photo {
         width:100%;
         object-fit:cover;
         z-index:-1;
+        height:250px;
+        @include tablet-only {
+            object-position: 50% 70%;
+            height:350px;
+        }
+        @include desktop-only {
+            object-position: 50% 70%;
+            height:500px;
+        }
+        &--bigphoto {
+            object-position: 50% 65%;
+            @include tablet-only {
+                object-position: 50% 65%;
+                height:350px;
+            }
+            @include desktop-only {
+                object-position: 50% 65%;
+                height:500px;
+            }
+        }
     }
     &__titre {
         position:absolute;
@@ -50,10 +83,11 @@
     list-style-type: none;
     margin:0;
     padding:0;
+    @include ul-item;
 }
 
 .recipe {
-    @include li-item(0rem, $color-bg-light);
+    @include li-item(0, $spacing-default 0, $color-bg-light, $width-li-tablet, $width-li-desktop, 1);
     overflow:hidden;
     position:relative;
     &__padding {
@@ -96,7 +130,7 @@
         bottom:0;
         right:0;
         background-color:$color-tertiary;
-        @extend .flex-full-center;
+        @include flex-full-center;
         padding:1.2rem;
         align-self:stretch;
         transform:translateX(100%);
@@ -106,6 +140,12 @@
             height:20px;
             fill:$color-bg-light;
             transform:rotate(0deg);
+        }
+    }
+    @for $i from 1 through 10 {
+        &--item#{$i} {
+            animation: fadein 0.5s ease-out both;
+            animation-delay: calc(0.2s * ($i - 1));
         }
     }
     &:hover {

@@ -1,13 +1,25 @@
 footer {
     background-color:$color-bg-darkgrey;
     color:$color-txt-light;
-    display:flex;
-    flex-direction:column;
-    padding:$spacing-default;
+    padding:1.5rem;
+    .footer-links {
+        display:flex;
+        flex-direction:column;
+        @include tablet-only {
+            @include footer-flex;
+        }
+        @include desktop-only {
+            @include footer-flex;
+        }
+    }
+
     h4 {
         margin:0;
         padding-bottom:$spacing-default;
-        @include font-family ('Shrikhand', $font-size-default, $font-weight-regular);
+        @include font-family ('Shrikhand', 1.2rem, $font-weight-light);
+        @include desktop-only {
+            @include font-family ('Shrikhand', 1.5rem, $font-weight-regular);
+        }    
     }
     a {
         padding:0.2rem 0rem;
@@ -24,5 +36,12 @@ footer {
         &:hover {
             text-decoration:underline;
         }
+        @include tablet-only {
+            width:23%;
+        }
+        @include desktop-only {
+            @include font-family ('Roboto', $font-size-default, $font-weight-regular);
+            width:23%;
+        }    
     }
 }

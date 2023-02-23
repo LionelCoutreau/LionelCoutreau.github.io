@@ -3,9 +3,3 @@ body {
     padding:0;
     @include font-family ('Roboto', 1rem);
 }
-
-.flex-full-center {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}

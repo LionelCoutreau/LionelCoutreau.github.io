@@ -24,10 +24,64 @@
         @content;
     }
 }
-@mixin li-item($padding, $bgcolor) {
+@mixin li-item($padding, $margin, $bgcolor, $width-tablet, $width-desktop, $spacing: 0) {
     border-radius:$border-radius-fonction;
-    padding:$padding 0rem;
-    margin:$spacing-default 0rem;
+    padding:$padding;
+    margin:$margin;
     background-color:$bgcolor;
     @include box-shadow(0.1);
+    @include tablet-only {
+        width:$width-tablet;
+        @if($spacing != 0) {
+            padding:0;
+            margin:0;
+        }
+    }
+    @include desktop-only {
+        width:$width-desktop;
+        @if($spacing != 0) {
+            padding:0;
+            margin:0;
+        }
+    }
+}
+
+@mixin ul-item ($wrap:wrap) {
+    @include tablet-only {
+        display:flex;
+        flex-wrap: $wrap;
+        gap:$spacing-default;
+        margin-bottom:2rem;
+    }
+    @include desktop-only {
+        display:flex;
+        flex-wrap: $wrap;
+        gap:$spacing-default;
+        margin-bottom:2rem;
+    }
+}
+
+@mixin flex-full-center {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+@mixin footer-flex {
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    gap:$spacing-default;
+}
+
+@mixin tablet-only {
+    @media screen and (min-width: map-get($breakpoints, tablet)){
+        @content;
+    }
+}
+
+@mixin desktop-only {
+    @media screen and (min-width: map-get($breakpoints, desktop)){
+        @content;
+    }
 }

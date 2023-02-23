@@ -4,7 +4,7 @@ nav {
     left:0;
     bottom:0;
     padding:$spacing-default 0rem 0.5rem 0rem;
-    @extend .flex-full-center;
+    @include flex-full-center;
 }
 
 .nav-icon {
