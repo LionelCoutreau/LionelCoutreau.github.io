@@ -34,11 +34,11 @@
         &--bigphoto {
             object-position: 50% 65%;
             @include tablet-only {
-                object-position: 50% 65%;
+                object-position: 50% 60%;
                 height:350px;
             }
             @include desktop-only {
-                object-position: 50% 65%;
+                object-position: 50% 60%;
                 height:500px;
             }
         }
