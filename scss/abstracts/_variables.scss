@@ -26,6 +26,10 @@ $border-radius-default: 2rem;
 $spacing-default:1rem;
 $border-radius-fonction: 1rem;
 $transition-duree:250ms;
+$animation-recipe-duration:0.5s;
+$width-li-tablet:calc(50% - $spacing-default / 2);
+$width-li-desktop:calc(33% - $spacing-default / 2);
+$width-li-desktop-25:calc(25% - $spacing-default);
 
 $breakpoints: (
     tablet: 768px,

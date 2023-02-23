@@ -3,6 +3,9 @@ header {
     .titre {
         @include font-family ('Shrikhand', 1.6rem, $font-weight-regular, center);
         padding:$spacing-default 0rem 0.5rem 0rem;
+        @include desktop-only {
+            @include font-family ('Shrikhand', 2rem, $font-weight-regular, center);
+        }    
     }
 }
 
@@ -11,7 +14,14 @@ header {
     background-color:#eaeaea;
     padding:$spacing-default;
     box-shadow: inset rgba(0, 0, 0, 0.2) 0px 3px 4px;
-    @extend .flex-full-center;
+    @include flex-full-center;
+    @include desktop-only {
+        position:absolute;
+        right:1rem;
+        top:0.6rem;
+        padding:$spacing-default 2rem;
+        border-radius:$border-radius-default;
+    }    
     &__icon {
         width:12px;
         padding-right:$spacing-default;
