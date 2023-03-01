@@ -545,18 +545,13 @@ footer a:hover {
 
 .label {
   position: relative;
-  height: 310px;
   overflow: hidden;
-}
-@media screen and (min-width: 768px) {
-  .label {
-    height: 350px;
+  /*@include tablet-only {
+      height:350px;
   }
-}
-@media screen and (min-width: 1025px) {
-  .label {
-    height: 500px;
-  }
+  @include desktop-only {
+      height:500px;
+  }*/
 }
 .label__photo {
   width: 100%;
